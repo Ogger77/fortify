@@ -1,6 +1,6 @@
 import { elements } from './base';
 //for external package, don't need path
-import { Fractional } from 'fractional';
+import { Fraction } from 'fractional';
 
 export const clearRecipe = () => {
     elements.recipe.innerHTML = '';
@@ -10,15 +10,16 @@ const formatCount = count => {
     if(count){
         //count 2.5 --> 2 1/2
         //count = 0.5 --> 1/2
-        const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
+        const newCount = Math.round(count * 10000)/10000;
+        const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10));
 
-        if(!dec) return count;
+        if(!dec) return newCount;
 
         if(int === 0){
-            const fr = new Fraction(count);
+            const fr = new Fraction(newCount);
             return `${fr.numerator}/${fr.denominator}`;
         } else {
-            const fr = new Fraction(count - int);
+            const fr = new Fraction(newCount - int);
             return `${int} ${fr.numerator}/${fr.denominator}`;
         }
     }
@@ -89,7 +90,7 @@ export const renderRecipe = recipe => {
                 ${recipe.ingredients.map(el => createIngredient(el)).join('')}
             </ul>
                 
-            <button class="btn-small recipe__btn">
+            <button class="btn-small recipe__btn recipe__btn--add">
                 <svg class="search__icon">
                     <use href="img/icons.svg#icon-shopping-cart"></use>
                 </svg>
