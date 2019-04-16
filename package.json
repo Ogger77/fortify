@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "node server.js", 
+    "test": "webpack-dev-server --mode development --open"
   },
   "author": "Dinh Vu",
   "license": "ISC",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
     "axios": "^0.18.0",
+    "express": "^4.16.4",
     "fractional": "^1.0.0",
     "jquery": "^3.4.0",
     "uniqid": "^5.0.3"
