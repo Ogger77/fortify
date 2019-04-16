@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
+<<<<<<< HEAD
     "start": "node server.js", 
     "test": "webpack-dev-server --mode development --open"
+=======
+    "start": "node app.js"
+>>>>>>> 194aa7b60aa12749862e41369c0a659d30e6a61e
   },
   "author": "Dinh Vu",
   "license": "ISC",
