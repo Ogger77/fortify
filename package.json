@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "npm start"
+    "start": "node app.js"
   },
   "author": "Dinh Vu",
   "license": "ISC",
